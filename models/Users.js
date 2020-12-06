@@ -40,7 +40,7 @@ UsersSchema.virtual('friendCount').get(function() {
     return this.friends.length;
   });
   // create the Users model using the PizzaSchema
-const Users = model('Users', UserSchema);
+const Users = model('Users', UsersSchema);
 
 // export the users model
 module.exports = Users;
