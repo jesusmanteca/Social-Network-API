@@ -10,7 +10,9 @@ const {
   } = require('../../controllers/thoughts-controller');
 
 // /api/thoughts/<userId>
-router.route('/:userId').post(addThought);
+router
+  .route('/:userId')
+  .post(addThought);
 
 // /api/thoughts
 router
@@ -25,7 +27,7 @@ router
 router
     .route('/:thoughtId')
     .get(getThoughtById)
-    //.put(updateThought)
+    .put(updateThought)
 
 // /api/thoughts
 router

@@ -1,81 +1,61 @@
 # Social-Network-API
 
-GIVEN a social network API
+## Description 
 
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
+The Social Network API is a basic back-end program that mimics the main components of a social media network site using MongoDB and Mongoose. As a user, you can add a comment, friend another user (similar to a like), reply on a comment and delete or edit information. 
 
-WHEN I open API GET routes in Insomnia Core for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
+## Table of Contents
 
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete users and thoughts in my database
+* [Installation](#installation)
+* [License](#License) 
+* [Contributing](#Contributing)
+* [Tests](#Tests) 
+* [Languages](#Languages) 
 
-WHEN I test API POST and DELETE routes in Insomnia Core
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+## Installation
 
+To install, simply clone the app and git init the json packages. Once on your terminal type 'node server' and you will connect to a local host. Using a program like Insomnia, you can test the routes and connect them to a front end of your choice. 
 
-- Models folder (collections/tables)
-User
-
-username
-
-    String
-    Unique
-    Required
-    Trimmed
-
-email
-
-    String
-    Required
-    Unique
-    Must match a valid email address (look into Mongoose's matching validation)
-
-thoughts
-
-    Array of _id values referencing the Thought model   
-
-friends
-
-    Array of _id values referencing the User model (self-reference)
-
-    Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
-
-    ---
-Thought
-
-thoughtText
-
-String
-Required
-Must be between 1 and 280 characters
-
-createdAt
-
-Date
-Set default value to the current timestamp
-Use a getter method to format the timestamp on query
-
-username (The user that created this thought)
-
-String
-Required
-
-reactions (These are like replies)
-    Array of nested documents created with the reactionSchema
-
-Schema Settings
-    Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
-
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia Core for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia Core
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ---
-server requires routes from index.js in ./routes, which is requiring the controllers which is requiring the models
+## License
+
+  The application is covered under the MIT license.
+
+  ![Badge](https://img.shields.io/badge/License-MIT-blueviolet)
+
+## Contributing
+
+Others may contribute by requesting to contribute through GitHub, cloning the code and creating separate branches. All final code will be reviewed and approved if changes are favorable.
+
+## Tests
+
+ROUTES:
+
+/api/users - get all users or post a user
+
+/api/users/:id - get user by id, update the user, or delete user
+
+/api/users/:userId/friends/:friendId' - adds/removes friend
+
+/api/thoughts/:userId - adds thought by user
+
+/api/thoughts - get all thoughts
+
+/api/thoughts/:id - get thoughts by id and update them
+
+/api/thoughts/:thoughtId/reactions - add reaction 
+
+/api/thoughts/:userId/:thoughtId' - remove thought
+
+/api/thoughts/:thoughtId/:reactionId/deleteReaction') - delete thought
+
+## Languages
+
+JavaScript: Node, Express, Mongoose, MondoDB
+
+## For More Information
+
+https://github.com/jesusmanteca
+jesusmanteca@gmail.com
+
+[Video Link](https://youtu.be/3-X-wFI69rM)
